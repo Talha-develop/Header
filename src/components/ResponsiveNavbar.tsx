@@ -4,10 +4,11 @@ import NavLinks from "./NavLinks";
 import CTAButton from "./CTAButton";
 import MobileToggle from "./MobileToggle";
 import MobileMenu from "./MobileMenu";
+import { useNavigate } from "react-router-dom";
 
 const ResponsiveNavbar: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
-
+  const nagivate = useNavigate();
   return (
     <header className="w-full bg-white border-b border-gray-200">
       <div className="max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -20,7 +21,11 @@ const ResponsiveNavbar: React.FC = () => {
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-6">
             <NavLinks onClickLink={() => {}} />
-            <CTAButton onClick={() => {}} />
+            <CTAButton
+              onClick={() => {
+                nagivate("/about");
+              }}
+            />
           </nav>
 
           {/* Mobile controls */}
